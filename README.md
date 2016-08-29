@@ -1,9 +1,10 @@
-# Static Website Boilerplate
+# React Static Website Boilerplate
 
 Static website boilterplate built using Webpack. This boilterplate features following:
 
 - Webpack
 - ES6
+- React
 - Bootstrap
 - Font Awesome
 - Sass
@@ -14,11 +15,12 @@ Static website boilterplate built using Webpack. This boilterplate features foll
 Clone the repo
 
 ```sh
-git clone https://github.com/binoy14/static-website-webpack-boilerplate.git
+git clone https://github.com/binoy14/react-static-website-boilerplate.git
 ```
 
 Run script to start devlopment
 ```sh
+npm install
 npm run start
 ```
 
