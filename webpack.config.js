@@ -2,6 +2,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -27,10 +28,10 @@ module.exports = {
 			loader: 'html'
 		},{
 			test: /\.scss$/,
-			loaders: ["style", "css", "sass"]
+			loader: ExtractTextPlugin.extract("style","css!sass")
 		},{
 			test: /\.css$/,
-			loaders: ["style", "css"]
+			loader: ExtractTextPlugin.extract("style","css")
 		},{
 			test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 			loader: "url-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]"
@@ -58,6 +59,7 @@ module.exports = {
 			port: 3000,
 			host: 'localhost'
 		}),
+		new ExtractTextPlugin('styles/app.css'),
 		new CopyWebpackPlugin([{
 			from: './manifest.json'
 		},{
@@ -71,4 +73,4 @@ module.exports = {
 			to: './'
 		}])
 	]
-}
+};
